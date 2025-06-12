@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Acesso aos Módulos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef4fb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px;
+      color: #004080;
+    }
+
+    input[type="password"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #004080;
+      border-radius: 5px;
+      width: 280px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0066cc;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Digite a senha para acessar o módulo</h2>
+  <input type="password" id="senha" placeholder="Digite a senha de acesso">
+  <br>
+  <button onclick="verificar()">Acessar</button>
+
+  <script>
+    function verificar() {
+      const senha = document.getElementById("senha").value;
+
+      if (senha === "neurocienciaemocoes") {
+        window.location.href = "https://sites.google.com/view/cursopsicanalisesbpcd/modulo-1";
+      } else if (senha === "freudxjung") {
+        window.location.href = "https://sites.google.com/view/cursopsicanalisesbpcd/modulo-2";
+      } else {
+        alert("Senha incorreta. Tente novamente.");
+      }
+    }
+  </script>
+
+</body>
+</html>
