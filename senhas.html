@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu de Desvio com Senha</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef4fb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 100px;
+    }
+
+    h2 {
+      color: #003366;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 18px;
+      width: 300px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #004080;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0066cc;
+    }
+
+    .dica {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #444;
+      text-align: center;
+      background-color: #fff;
+      padding: 15px;
+      border: 1px solid #ccc;
+      width: 350px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Digite a Senha para Acessar</h2>
+  <input type="password" id="senha" placeholder="Senha de acesso">
+  <button onclick="verificarSenha()">Acessar</button>
+
+  <div class="dica">
+    <strong>🔧 Onde editar:</strong><br><br>
+    No bloco <code>const rotas = { ... }</code> abaixo você adiciona ou modifica senhas e links.
+  </div>
+
+  <script>
+    function verificarSenha() {
+      const senha = document.getElementById('senha').value.trim();
+
+      // 🔒 SENHAS FIXAS E LINKS PARA OS MÓDULOS
+      const rotas = {
+        "modulo13245": "https://sites.google.com/view/cursopsicanalisesbpcd/modulo-1",
+        "modulo23506": "https://sites.google.com/view/cursopsicanalisesbpcd/modulo-2"
+      };
+
+      if (rotas[senha]) {
+        window.location.href = rotas[senha];
+      } else {
+        alert("Senha inválida!");
+      }
+    }
+  </script>
+</body>
+</html>
