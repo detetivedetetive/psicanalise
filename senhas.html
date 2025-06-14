@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Menu de Desvio com Senha</title>
+  <title>Desvio com Senha</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -15,6 +15,7 @@
 
     h2 {
       color: #003366;
+      margin-bottom: 20px;
     }
 
     input {
@@ -37,43 +38,55 @@
       background-color: #0066cc;
     }
 
-    .dica {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #444;
-      text-align: center;
-      background-color: #fff;
-      padding: 15px;
-      border: 1px solid #ccc;
-      width: 350px;
-      border-radius: 8px;
+    #mensagemErro {
+      margin-top: 15px;
+      color: red;
+      font-weight: bold;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h2>Digite a Senha para Acessar</h2>
+  <h2>Digite sua senha</h2>
   <input type="password" id="senha" placeholder="Senha de acesso">
   <button onclick="verificarSenha()">Acessar</button>
-
-  <div class="dica">
-    <strong>🔧 Onde editar:</strong><br><br>
-    No bloco <code>const rotas = { ... }</code> abaixo você adiciona ou modifica senhas e links.
-  </div>
+  <div id="mensagemErro">Você digitou a chave errada.</div>
 
   <script>
     function verificarSenha() {
       const senha = document.getElementById('senha').value.trim();
+      const mensagemErro = document.getElementById('mensagemErro');
 
-      // 🔒 SENHAS FIXAS E LINKS PARA OS MÓDULOS
+      // 🔐 SENHAS E LINKS – EDITE AQUI
       const rotas = {
-        "modulo13245": "https://sites.google.com/view/cursopsicanalisesbpcd/modulo-1",
-        "modulo23506": "https://sites.google.com/view/cursopsicanalisesbpcd/modulo-2"
+        "modulo13245": "https://sites.google.com/view/cursopsicanalisesbpcd/modulo-1", // Módulo 1
+        "modulo23506": "https://sites.google.com/view/cursopsicanalisesbpcd/modulo-2", // Módulo 2
+
+        // RESERVAS PARA FUTUROS MÓDULOS:
+        "modulo3": "",  // Módulo 3
+        "modulo4": "",  // Módulo 4
+        "modulo5": "",  // Módulo 5
+        "modulo6": "",  // Módulo 6
+        "modulo7": "",  // Módulo 7
+        "modulo8": "",  // Módulo 8
+        "modulo9": "",  // Módulo 9
+        "modulo10": "", // Módulo 10
+        "modulo11": "", // Módulo 11
+        "modulo12": "", // Módulo 12
+        "modulo13": "", // Módulo 13
+        "modulo14": "", // Módulo 14
+        "modulo15": "", // Módulo 15
+        "modulo16": "", // Módulo 16
+        "modulo17": "", // Módulo 17
+        "modulo18": "", // Módulo 18
+        "modulo19": "", // Módulo 19
+        "modulo20": ""  // Módulo 20
       };
 
       if (rotas[senha]) {
         window.location.href = rotas[senha];
       } else {
-        alert("Senha inválida!");
+        mensagemErro.style.display = 'block';
       }
     }
   </script>
