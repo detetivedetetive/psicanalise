@@ -47,15 +47,36 @@
   <button onclick="validarCodigo()">Entrar</button>
   <div id="mensagemErro">Código inválido.</div>
 
-  <script src="senhas.js"></script>
   <script>
+    const senhas = {
+      "12345": "modo1.html",
+      "23456": "modo2.html",
+      "34567": "modo3.html",
+      "45678": "modo4.html",
+      "56789": "modo5.html",
+      "11111": "pagina1.html",
+      "22222": "pagina2.html",
+      "33333": "pagina3.html",
+      "44444": "pagina4.html",
+      "55555": "pagina5.html",
+      "66666": "pagina6.html",
+      "77777": "pagina7.html",
+      "88888": "pagina8.html",
+      "99999": "pagina9.html",
+      "00000": "pagina10.html",
+      "11223": "pagina11.html",
+      "22334": "pagina12.html",
+      "33445": "pagina13.html",
+      "44556": "pagina14.html",
+      "55667": "pagina15.html"
+    };
+
     function validarCodigo() {
       const codigo = document.getElementById('codigoInput').value.trim();
       const erro = document.getElementById('mensagemErro');
 
       if (senhas.hasOwnProperty(codigo)) {
-        const destino = senhas[codigo];
-        window.location.href = destino;
+        window.location.href = senhas[codigo];
       } else {
         erro.style.display = 'block';
       }
