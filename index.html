@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Acesso aos Módulos</title>
+  <title>Validação de Código</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -10,54 +10,56 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 50px;
-      color: #004080;
+      padding-top: 100px;
     }
-
-    input[type="password"] {
+    h2 {
+      color: #003366;
+    }
+    input {
       padding: 10px;
-      font-size: 16px;
-      border: 1px solid #004080;
-      border-radius: 5px;
-      width: 280px;
-      margin-bottom: 15px;
+      font-size: 18px;
+      width: 300px;
+      margin-bottom: 10px;
+      text-align: center;
     }
-
     button {
       padding: 10px 20px;
-      font-size: 16px;
+      font-size: 18px;
       background-color: #004080;
       color: white;
       border: none;
-      border-radius: 5px;
       cursor: pointer;
     }
-
     button:hover {
       background-color: #0066cc;
+    }
+    #mensagemErro {
+      margin-top: 15px;
+      color: red;
+      font-weight: bold;
+      display: none;
     }
   </style>
 </head>
 <body>
+  <h2>Digite seu código de acesso</h2>
+  <input type="text" id="codigoInput" maxlength="5" placeholder="Ex: 12345" />
+  <button onclick="validarCodigo()">Entrar</button>
+  <div id="mensagemErro">Código inválido.</div>
 
-  <h2>Digite a senha para acessar o módulo</h2>
-  <input type="password" id="senha" placeholder="Digite a senha de acesso">
-  <br>
-  <button onclick="verificar()">Acessar</button>
-
+  <script src="senhas.js"></script>
   <script>
-    function verificar() {
-      const senha = document.getElementById("senha").value;
+    function validarCodigo() {
+      const codigo = document.getElementById('codigoInput').value.trim();
+      const erro = document.getElementById('mensagemErro');
 
-      if (senha === "neurocienciaemocoes") {
-        window.location.href = "https://sites.google.com/view/cursopsicanalisesbpcd/modulo-1";
-      } else if (senha === "freudxjung") {
-        window.location.href = "https://sites.google.com/view/cursopsicanalisesbpcd/modulo-2";
+      if (senhas.hasOwnProperty(codigo)) {
+        const destino = senhas[codigo];
+        window.location.href = destino;
       } else {
-        alert("Senha incorreta. Tente novamente.");
+        erro.style.display = 'block';
       }
     }
   </script>
-
 </body>
 </html>
