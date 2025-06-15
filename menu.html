@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Acesso ao Curso</title>
+  <style>
+    body{font-family:Arial,sans-serif;background:#eef4fb;display:flex;flex-direction:column;align-items:center;padding-top:100px}
+    h2{color:#003366;margin-bottom:20px}
+    input{padding:10px;font-size:18px;width:300px;margin-bottom:10px}
+    button{padding:10px 20px;font-size:18px;background:#004080;color:#fff;border:none;cursor:pointer}
+    button:hover{background:#0066cc}
+    #msg{color:red;font-weight:bold;display:none}
+  </style>
+</head>
+<body>
+  <h2>Digite a Senha de Acesso</h2>
+  <input type="password" id="s">
+  <button onclick="x()">Entrar</button>
+  <div id="msg">Senha incorreta.</div>
+  <script>
+    const m={"psica01":"https://sites.google.com/view/cursopsicanalisesbpcd/modulo-1","psica02":"modo2.html","psica03":"modo3.html","psica04":"modo4.html","psica05":"modo5.html"};
+    function x(){let i=document.getElementById("s").value;m[i]?location.href=m[i]:document.getElementById("msg").style.display="block";}
+  </script>
+</body>
+</html>
